@@ -82,6 +82,45 @@ app.post('/signup',(req, res) =>{
     })
 })
 
+//login route
+
+app.get ('/login', (req, res) => {
+    res.sendFile(path.join(staticPath,"login.html"));
+    }
+)
+app.post('/login', (req, res) => {
+    let{email , password} = req.body;
+    if (!email.length || !password.length){
+        return res.json({'alert':'Email and password both are required'});
+    }
+
+    db.collection('users').doc(email).get()
+        .then(user => {
+            if(!user.exists){  // if user email doesn't exists
+                return res.json ({'alert':'log in email does not exist'})
+
+            } else {
+                bcrypt.compare(password, user.data().password, (err, result) => {
+                    if(result){ // if password is not correct
+                        let data = user.data();
+                        return res.json({
+                            name: data.name,
+                            email: data.email,
+                            seller: data.seller,
+                        })
+                    } else {
+                        return res.json({'alert':'Password is incorrect'});
+                    }
+                })
+            }
+        })
+})
+
+//seller route
+app.get('/seller', (req, res) => {
+    res.sendFile(path.join(staticPath,'seller.html'));
+})
+
 // 404 route
 app.get('/404',(req, res) => {
     res.sendFile(path.join(staticPath,'404.html'));
