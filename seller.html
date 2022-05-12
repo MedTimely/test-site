@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/seller.css">
+
+</head>
+<body>
+<img src="image/gif-resource/loader/512x512.gif" class="loader" alt="Loading..." >
+<div class="alert-box"> <!--- Alert Box  **put show after alert-box-->
+    <img src="image/error.png" alt="" class="alert-img">
+    <p class="alert-msg">Error message</p>
+
+</div>
+
+<img src="image/logo3-drop.png" class="logo" alt="" >
+
+<div class="become-seller">
+    <p class="heading">Become a Seller</p>
+    <p class="des">Join our community of sellers and start selling your products online</p>
+    <button class="btn" id="apply-btn">apply for Seller account</button>
+
+
+</div>
+<!-- apply form -->
+<div class="apply-form hide">
+    <input type="text" id="business-name" placeholder="Company name">
+   <textarea id="business-add" placeholder="Company address"></textarea>
+    <textarea id="about" placeholder="about company"></textarea>
+    <input type="text" id="number" placeholder="number">
+    <input type = "checkbox" class="checkbox" id="termscond">
+    <label for="termscond">"I agree to the <a href="#">terms and conditions</a>"</label>
+    <br>
+    <input type = "checkbox" checked class="checkbox" id="legitInfo">
+    <label for="legitInfo">all information is correct</label>
+    <button class="submit-btn" id="apply-form-btn">apply</button>
+    <img src="image/medtimely-word.png" class="med-word" alt="">
+</div>
+
+
+<script src="js/token.js"></script>
+<script src="js/seller.js"></script>
+</body>
+</html>

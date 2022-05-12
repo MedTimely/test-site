@@ -59,7 +59,7 @@
     background: #2e3440;
     color:#e5e9f0;
     text-transform: capitalize;
-    line-height: 1.5px;/* for centering text in button*/
+    line-height: 1px;/* for centering text in button*/
     text-align: center;
     font-size: 17px;
     border-top-right-radius: 10px;
@@ -69,11 +69,14 @@
     color: #000000;
 }
 
-.Top-items a{
+.Top-items a{   /*.nav-items*/
 margin-left: 20px;
+    position: relative;
+
 }
 .Top-items a img{
     width: 30px;
+    cursor: pointer;
 }
 
 .links-container{
@@ -131,7 +134,6 @@ margin-left: 20px;
     width: auto;
     height: auto;
     overflow: hidden;
-    overflow-x: hidden;
 }
 
 .product-thumb{
@@ -217,3 +219,53 @@ margin-left: 20px;
     text-decoration: line-through 2px;
 
 }
+
+.login-logout-popup {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: #e8efff;
+    border-radius: 15px;
+    top: 40px;
+    width: 250px;
+    transition: .10s;
+    border: 2px solid #2e3440;
+
+}
+
+.login-logout-popup::after
+{
+    content: "";
+    position: absolute;
+    top: -7.5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width : 15px;
+    height: 15px;
+    background: #e8efff;
+    border-radius: 5px;
+}
+
+.account-info{
+    font-size: 20px;
+text-transform: capitalize;
+}
+
+#user-btn{
+    padding: 10px;
+    background: #2e3440;
+    color: #e5e9f0;
+    border: none;
+    outline: none;
+    width : 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+    text-transform: capitalize;
+
+}
+.hide{
+opacity: 0;
+    pointer-events: none;
+}
+
