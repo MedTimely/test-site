@@ -51,42 +51,12 @@ submitBtn.addEventListener('click',() =>{
        if(!email.value.length || !password.value.length){
            showAlert('fill all the inputs'); 
    } else {
-
+           loader.style.display = 'block';
+           sendData('/login',{
+               email: email.value,
+               password: password.value,
+           })
    }
 }
     
 })
-
-// send data  function
-const sendData=(path, data) =>{
-    fetch(path,{
-        method:'post',
-        headers: new Headers({'Content-Type':'application/json'}),
-        body: JSON.stringify(data)
-    }) .then((res) => res.json())
-        .then(response => {
-          processData(response);
-        })
-}
-const processData = (data) =>{
-    loader.style.display = null;
-    if (data.alert){
-        showAlert(data.alert);
-    } else if (data.name){
-        //create authToken
-        data.authToken = generateToken(data.email);
-        sessionStorage.user = JSON.stringify(data);
-        location.replace('/');
-    }
-}
-// calling alert function
-
-const showAlert = (msg) =>{
-    let alertBox = document.querySelector('.alert-box');
-    let alertMsg = document.querySelector('.alert-msg');
-    alertMsg.innerHTML = msg;
-    alertBox.classList.add('show');
-    setTimeout(() =>{
-        alertBox.classList.remove('show');
-    },2000);
-}
